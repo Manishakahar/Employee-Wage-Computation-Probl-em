@@ -1,4 +1,4 @@
-package com.blz.Refactor;
+package com.blz.empwage;
 
 public class EmployeeWage {
     public static final int IS_PART_TIME = 1;
