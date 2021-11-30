@@ -1,4 +1,4 @@
-package com.blz.UC;
+package com.blz.empwage;
 
 public class EmployeeWage {
     public static final int IS_PART_TIME = 1;
@@ -10,10 +10,10 @@ public class EmployeeWage {
 
     static int days = 1;
     static int workingHours = 0;
-    static int totalHours=0;
+    static int totalHours = 0;
 
     public static int getWorkingHours() {
-        double empCheck = Math.floor(Math.random() * 10) % 2;
+        double empCheck = Math.floor(Math.random() * 10) % 3;
         switch ((int) empCheck) {
             case 0:
                 workingHours = FULL_DAY_HR;
@@ -23,19 +23,18 @@ public class EmployeeWage {
                 break;
             default:
                 workingHours = 0;
-                break;
         }
         return workingHours;
     }
 
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation");
-        while (days <= DAYS_PER_MONTH && totalHours<=100) {
-            totalHours=(totalHours+getWorkingHours());
-                if(getWorkingHours() != 0) {
+        while (days <= DAYS_PER_MONTH && totalHours <= 100) {
+            totalHours = (totalHours + getWorkingHours());
+            if (getWorkingHours() != 0) {
                 days++;
-                }
             }
+        }
         System.out.println("Emp Wage Per Month: " + (EMP_WAGE_PER_HR * totalHours));
     }
 }
