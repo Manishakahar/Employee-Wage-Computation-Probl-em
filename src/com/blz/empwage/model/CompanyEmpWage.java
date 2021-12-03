@@ -1,12 +1,12 @@
-package com.blz.empwage;
+package com.blz.empwage.model;
 
 public class CompanyEmpWage {
     // Declaring Variable
-     public  String companyName;
-     public  int empWagePerHr;
-     public  int numMaxWorkingDay;
-     public  int maxHrsInMonth;
-     public  int totalEmpWage;
+    public String companyName;
+    public int empWagePerHr;
+    public int numMaxWorkingDay;
+    public int maxHrsInMonth;
+    public int totalEmpWage;
 
     // Constructor
     public CompanyEmpWage(String companyName, int empWagePerHr, int numMaxWorkingDay, int maxHrsInMonth) {
@@ -27,3 +27,4 @@ public class CompanyEmpWage {
                 '}';
     }
 }
+
