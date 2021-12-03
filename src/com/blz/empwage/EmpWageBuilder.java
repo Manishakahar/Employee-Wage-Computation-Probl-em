@@ -12,13 +12,15 @@ public class EmpWageBuilder {
     private static int numMaxWorkingDay;
     private static int maxHrsInMonth;
     private static int totalEmpWage;
-     // Constructor
+
+    // Constructor
     public EmpWageBuilder(String companyName, int empWagePerHr, int numMaxWorkingDay, int maxHrsInMonth) {
         this.companyName = companyName;
         this.empWagePerHr = empWagePerHr;
         this.numMaxWorkingDay = numMaxWorkingDay;
         this.maxHrsInMonth = maxHrsInMonth;
     }
+
     @Override
     public String toString() {
         return "Total EmpWAge for " + companyName + "  " + totalEmpWage;
@@ -31,7 +33,6 @@ public class EmpWageBuilder {
         EmpWageBuilder tcsEmpWage = new EmpWageBuilder("tcs", 16, 20, 100);
         tcsEmpWage.computeEmpWage();
         System.out.println(tcsEmpWage);
-
     }
 
     private void computeEmpWage() {
@@ -43,11 +44,9 @@ public class EmpWageBuilder {
             switch ((int) empCheck) {
                 case 0:
                     workingHours = FULL_DAY_HR;
-                    //System.out.println("FULL DAY HR " + workingHours);
                     break;
                 case 1:
                     workingHours = PART_DAY_HR;
-                   // System.out.println("PART DAY HR" + workingHours);
                     break;
                 default:
                     workingHours = 0;
@@ -56,7 +55,6 @@ public class EmpWageBuilder {
             System.out.println("Day: " + totalWorkingDays + " workingHours: " + workingHours);
         }
         //Calculate Employ wage
-         totalEmpWage = totalEmpHours * empWagePerHr;
+        totalEmpWage = totalEmpHours * empWagePerHr;
     }
-
 }
