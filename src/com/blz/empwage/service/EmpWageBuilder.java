@@ -3,6 +3,9 @@ package com.blz.empwage.service;
 import com.blz.empwage.interface1.IComputeEmpWage;
 import com.blz.empwage.model.CompanyEmpWage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class EmpWageBuilder implements IComputeEmpWage {
     // Declaring Constants
     public static final int IS_PART_TIME = 1;
@@ -10,8 +13,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
     public static final int FULL_DAY_HR = 8;
     public static final int PART_DAY_HR = 4;
 
-    private CompanyEmpWage[] companyEmpWagerArray = new CompanyEmpWage[5];
-    private int numOfCompany = 0;
+    List<CompanyEmpWage> companyEmpWageList = new ArrayList();
 
     public static void main(String[] args) {
         IComputeEmpWage empWageBuilder = new EmpWageBuilder();
@@ -45,17 +47,15 @@ public class EmpWageBuilder implements IComputeEmpWage {
     @Override
     public void addCompanyEmpWage(String companyName, int empWagePerHr, int numMaxWorkingDay, int maxHrsInMonth) {
         CompanyEmpWage empWage = new CompanyEmpWage(companyName, empWagePerHr, numMaxWorkingDay, maxHrsInMonth);
-        companyEmpWagerArray[numOfCompany] = empWage;
-        numOfCompany++;
+        companyEmpWageList.add(empWage);
     }
-
 
     @Override
     public void computeEmpWageFromArray() {
-        for (int i = 0; i < numOfCompany; i++) {
-            int totalWage = computeEmpWage(companyEmpWagerArray[i]);
-            companyEmpWagerArray[i].totalEmpWage = totalWage;
-            System.out.println(companyEmpWagerArray[i]);
+        for (int i = 0; i < companyEmpWageList.size(); i++) {
+            int totalWage = computeEmpWage(companyEmpWageList.get(i));
+            companyEmpWageList.get(i).totalEmpWage = totalWage;
+            System.out.println(companyEmpWageList.get(i));
         }
     }
 }
