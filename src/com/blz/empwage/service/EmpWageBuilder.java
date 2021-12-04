@@ -20,6 +20,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
         empWageBuilder.addCompanyEmpWage("dMart", 20, 14, 20);
         empWageBuilder.computeEmpWageFromArray();
     }
+
     private int computeEmpWage(CompanyEmpWage companyEmpWage) {
         int totalEmpHours = 0, totalWorkingDays = 0, workingHours = 0;
         int index = 0;
@@ -38,7 +39,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
                     workingHours = 0;
             }
             totalEmpHours += workingHours;
-            companyEmpWage.perDayWage[totalWorkingDays] = workingHours * companyEmpWage .empWagePerHr;
+            companyEmpWage.perDayWage[totalWorkingDays] = workingHours * companyEmpWage.empWagePerHr;
             totalWorkingDays++;
         }
         return totalEmpHours * companyEmpWage.empWagePerHr;
