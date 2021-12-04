@@ -1,5 +1,7 @@
 package com.blz.empwage.model;
 
+import java.util.Arrays;
+
 public class CompanyEmpWage {
     // Declaring Variable
     public String companyName;
@@ -7,13 +9,16 @@ public class CompanyEmpWage {
     public int numMaxWorkingDay;
     public int maxHrsInMonth;
     public int totalEmpWage;
+   public int[] perDayWage;
 
     // Constructor
     public CompanyEmpWage(String companyName, int empWagePerHr, int numMaxWorkingDay, int maxHrsInMonth) {
         this.companyName = companyName;
         this.empWagePerHr = empWagePerHr;
+        this. maxHrsInMonth=maxHrsInMonth;
         this.numMaxWorkingDay = numMaxWorkingDay;
-        this.maxHrsInMonth = maxHrsInMonth;
+        this. perDayWage = new int[numMaxWorkingDay];
+
     }
 
     @Override
@@ -24,6 +29,7 @@ public class CompanyEmpWage {
                 ", numMaxWorkingDay=" + numMaxWorkingDay +
                 ", maxHrsInMonth=" + maxHrsInMonth +
                 ", totalEmpWage=" + totalEmpWage +
+                ", perDayWage=" + Arrays.toString(perDayWage) +
                 '}';
     }
 }

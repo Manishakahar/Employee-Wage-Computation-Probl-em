@@ -2,7 +2,6 @@ package com.blz.empwage.service;
 
 import com.blz.empwage.interface1.IComputeEmpWage;
 import com.blz.empwage.model.CompanyEmpWage;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,9 +20,9 @@ public class EmpWageBuilder implements IComputeEmpWage {
         empWageBuilder.addCompanyEmpWage("dMart", 20, 14, 20);
         empWageBuilder.computeEmpWageFromArray();
     }
-
     private int computeEmpWage(CompanyEmpWage companyEmpWage) {
         int totalEmpHours = 0, totalWorkingDays = 0, workingHours = 0;
+        int index = 0;
         while (totalEmpHours < companyEmpWage.maxHrsInMonth && totalWorkingDays < companyEmpWage.numMaxWorkingDay) {
             totalWorkingDays++;
             double empCheck = Math.floor(Math.random() * 10) % 3;
@@ -39,6 +38,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
                     workingHours = 0;
             }
             totalEmpHours += workingHours;
+            companyEmpWage.perDayWage[totalWorkingDays] = workingHours * companyEmpWage .empWagePerHr;
             totalWorkingDays++;
         }
         return totalEmpHours * companyEmpWage.empWagePerHr;
